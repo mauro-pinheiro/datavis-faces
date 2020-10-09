@@ -1,0 +1,19 @@
+version: '3'
+
+networks:
+    datavis:
+
+services: 
+    face:
+        build: 
+            context: .
+            args:
+                - USER=$USER
+        container_name: face
+        ports: 
+            - 3000:3000
+        tty: true
+        volumes: 
+            - ./1/face/src:$HOME/datavis/2020/face/src
+        networks: 
+            - datavis
